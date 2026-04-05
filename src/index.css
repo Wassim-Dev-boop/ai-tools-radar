@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'Space Grotesk', 'Segoe UI', sans-serif;
+  color: #0f172a;
+  background: #f8fafc;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background-color: #f8fafc;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.bg-site-pattern {
+  background-image:
+    radial-gradient(circle at 0% 0%, rgba(34, 211, 238, 0.14), transparent 42%),
+    radial-gradient(circle at 100% 0%, rgba(16, 185, 129, 0.11), transparent 45%),
+    linear-gradient(180deg, #f8fafc, #eef6ff 52%, #f8fafc);
+}
+
+@layer base {
+  h1,
+  h2,
+  h3 {
+    font-family: 'Source Serif 4', Georgia, serif;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.35s ease-out;
+}

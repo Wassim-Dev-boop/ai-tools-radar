@@ -1,0 +1,22 @@
+export const editorialIdeas: string[] = [
+  'Best AI tools for students on a budget',
+  'Best AI tools for marketing teams in 2026',
+  'AI tools for coding: complete comparison by language',
+  'Free AI tools worth using every day',
+  'Top AI alternatives for ChatGPT by use case',
+  'How to compare AI tools without bias',
+  'AI tools by category: full beginner map',
+  'Best AI tools for startup founders',
+  'Best AI tools for YouTube creators',
+  'Best AI tools for ecommerce stores',
+  'AI tools for SEO content briefs and topical authority',
+  'How to build an AI workflow for content marketing',
+  'Best AI meeting assistants for remote teams',
+  'AI tools for customer support automation',
+  'AI tools for designers: image and branding workflows',
+  'AI tools for researchers: citation-safe workflows',
+  'Best AI automation tools for no-code builders',
+  'How to cut SaaS costs with AI stack consolidation',
+  'AI productivity tools for students during exams',
+  'AI writing tools vs human editing: what works best'
+]
