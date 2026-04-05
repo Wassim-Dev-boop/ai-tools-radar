@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react'
+import { PhotoShowcase } from '../components/content/PhotoShowcase'
 import { Breadcrumbs } from '../components/ui/Breadcrumbs'
 import { SeoHead } from '../components/seo/SeoHead'
 import { ToolFilters } from '../components/tools/ToolFilters'
@@ -6,6 +7,7 @@ import { ToolCard } from '../components/tools/ToolCard'
 import { AdSlot } from '../components/ui/AdSlot'
 import { categories } from '../data/categories'
 import { tools } from '../data/tools'
+import { showcasePhotos } from '../data/visuals'
 import type { PricingModel } from '../types'
 import { filterTools, sortTools } from '../utils/tools'
 
@@ -55,6 +57,12 @@ export const ToolsPage = () => {
           onSortChange={setSort}
         />
       </div>
+
+      <PhotoShowcase
+        title="Visual AI workspace"
+        subtitle="Photo-rich context to help visitors quickly understand real AI use cases before choosing a tool."
+        photos={showcasePhotos.slice(3)}
+      />
 
       <AdSlot label="Tools listing in-feed ad slot" className="mt-6" />
 

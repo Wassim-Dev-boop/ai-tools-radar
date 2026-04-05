@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { CategoryBlocks } from '../components/content/CategoryBlocks'
 import { FaqSection } from '../components/content/FaqSection'
 import { NewsletterBox } from '../components/content/NewsletterBox'
+import { PhotoShowcase } from '../components/content/PhotoShowcase'
 import { RelatedArticles } from '../components/content/RelatedArticles'
 import { RelatedTools } from '../components/content/RelatedTools'
 import { SeoHead } from '../components/seo/SeoHead'
@@ -11,6 +12,7 @@ import { articles } from '../data/articles'
 import { categories } from '../data/categories'
 import { editorialIdeas } from '../data/content-plan'
 import { tools } from '../data/tools'
+import { showcasePhotos } from '../data/visuals'
 
 const homepageFaq = [
   {
@@ -70,7 +72,8 @@ export const HomePage = () => {
       <section className="relative overflow-hidden rounded-3xl border border-slate-200 bg-white p-8 shadow-sm sm:p-10">
         <div className="absolute -right-24 -top-16 h-56 w-56 rounded-full bg-cyan-200/60 blur-3xl" />
         <div className="absolute -bottom-20 -left-24 h-56 w-56 rounded-full bg-emerald-200/60 blur-3xl" />
-        <div className="relative max-w-3xl">
+        <div className="relative grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+          <div className="max-w-3xl animate-reveal-up">
           <p className="inline-flex rounded-full bg-slate-100 px-3 py-1 text-xs font-medium uppercase tracking-wider text-slate-700">
             SEO-first AI tools directory
           </p>
@@ -93,6 +96,25 @@ export const HomePage = () => {
             >
               Read SEO guides
             </Link>
+          </div>
+          </div>
+
+          <div className="animate-reveal-up" style={{ animationDelay: '120ms' }}>
+            <div className="grid grid-cols-2 gap-3">
+              {showcasePhotos.slice(0, 4).map((photo, index) => (
+                <figure
+                  key={photo.src}
+                  className={`overflow-hidden rounded-2xl border border-slate-200 bg-white ${index === 0 ? 'col-span-2' : ''}`}
+                >
+                  <img
+                    src={photo.src}
+                    alt={photo.alt}
+                    loading="lazy"
+                    className={`w-full object-cover transition duration-500 hover:scale-105 ${index === 0 ? 'h-44 sm:h-52' : 'h-28 sm:h-36'}`}
+                  />
+                </figure>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -121,6 +143,12 @@ export const HomePage = () => {
       <div className="mt-12">
         <CategoryBlocks categories={categories.slice(0, 6)} />
       </div>
+
+      <PhotoShowcase
+        title="AI teams in action"
+        subtitle="Real work environments that match how readers use AI tools daily: research, writing, coding, and growth workflows."
+        photos={showcasePhotos}
+      />
 
       <div className="mt-12">
         <RelatedTools title="Featured AI tools" tools={featuredTools} />

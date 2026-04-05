@@ -1,7 +1,9 @@
 import { ArticleCard } from '../components/content/ArticleCard'
+import { PhotoShowcase } from '../components/content/PhotoShowcase'
 import { SeoHead } from '../components/seo/SeoHead'
 import { Breadcrumbs } from '../components/ui/Breadcrumbs'
 import { articles } from '../data/articles'
+import { showcasePhotos } from '../data/visuals'
 
 export const BlogPage = () => {
   const sortedArticles = [...articles].sort((a, b) => b.publishedAt.localeCompare(a.publishedAt))
@@ -27,6 +29,12 @@ export const BlogPage = () => {
           Long-form content designed for high-intent SEO queries like best AI tools, comparisons, and category-specific workflows.
         </p>
       </section>
+
+      <PhotoShowcase
+        title="Inspiration gallery"
+        subtitle="Snapshots that support each article theme: productivity, collaboration, education, and AI strategy."
+        photos={showcasePhotos.slice(0, 3)}
+      />
 
       <section className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
         {sortedArticles.map((article) => (

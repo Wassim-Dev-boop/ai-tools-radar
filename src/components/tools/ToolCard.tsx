@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { getToolPhoto } from '../../data/visuals'
 import type { Tool } from '../../types'
 
 const badgeColorByPricing: Record<Tool['pricing'], string> = {
@@ -12,8 +13,12 @@ interface ToolCardProps {
 }
 
 export const ToolCard = ({ tool }: ToolCardProps) => {
+  const imageUrl = getToolPhoto(tool.slug)
+
   return (
-    <article className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
+    <article className="photo-card animate-reveal-up overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+      <img src={imageUrl} alt={`${tool.name} interface preview`} loading="lazy" className="h-40 w-full object-cover" />
+      <div className="p-5">
       <div className="mb-3 flex flex-wrap items-center gap-2">
         <span className={`rounded-full px-2.5 py-1 text-xs font-medium ${badgeColorByPricing[tool.pricing]}`}>
           {tool.pricing}
@@ -39,10 +44,11 @@ export const ToolCard = ({ tool }: ToolCardProps) => {
         <span className="text-sm font-medium text-slate-700">Rating: {tool.rating.toFixed(1)}/5</span>
         <Link
           to={`/tools/${tool.slug}`}
-          className="rounded-lg bg-slate-900 px-3 py-2 text-sm font-medium text-white transition hover:bg-slate-700"
+          className="animate-pulse-glow rounded-lg bg-slate-900 px-3 py-2 text-sm font-medium text-white transition hover:bg-slate-700"
         >
           View details
         </Link>
+      </div>
       </div>
     </article>
   )
